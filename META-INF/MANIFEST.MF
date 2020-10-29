@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+sample.start.sample.Main-sample.Class: sample.start.sample.Main
+

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="750.0" styleClass="transparent" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.SignUpController">
+   <children>
+      <AnchorPane layoutX="41.0" layoutY="48.0" prefHeight="508.0" prefWidth="566.0" styleClass="transparent" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
+         <children>
+            <AnchorPane layoutX="289.0" layoutY="47.0" prefHeight="412.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 0.8em; -fx-border-style: solid; -fx-border-radius: 0.8em; -fx-border-color: #1A4689;" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="289.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="47.0">
+               <children>
+                  <Label layoutX="57.0" layoutY="25.0" prefHeight="41.0" prefWidth="80.0" stylesheets="@../css/style.css" text="Sign Up" AnchorPane.leftAnchor="57.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="Ebrima" size="22.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="259.0" layoutY="1.0" prefHeight="31.0" prefWidth="80.0" style="-fx-background-radius: 0.8em; -fx-border-radius: 0.8em;" stylesheets="@../css/style.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button cancelButton="true" mnemonicParsing="false" onMouseClicked="#CloseWindow" prefHeight="38.0" prefWidth="53.0" style="-fx-background-radius: 0 0.8em 0 0; -fx-focus-color: transparent; -fx-background-insets: 0;" styleClass="close_btn" stylesheets="@../css/style.css" textFill="WHITE" GridPane.columnIndex="1">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#WindowMinimize" prefHeight="48.0" prefWidth="107.0" style="-fx-background-radius: 0 0 0 0.8em; -fx-focus-color: transparent; -fx-background-insets: 0;" styleClass="minimized_btn" stylesheets="@../css/style.css" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <FontAwesomeIcon fill="WHITE" iconName="CLOSE" onMouseClicked="#CloseWindow" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon fill="WHITE" iconName="MINUS" onMouseClicked="#WindowMinimize" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIcon>
+                     </children>
+                  </GridPane>
+                  <FlowPane alignment="CENTER" layoutX="42.0" layoutY="321.0" prefHeight="51.0" prefWidth="275.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="26.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="162.0" stylesheets="@../css/style.css" text="You have already an account?" />
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#ChangeSignIn" prefHeight="25.0" prefWidth="59.0" style="-fx-text-fill: #1A4689; -fx-background-color: transparent;" stylesheets="@../css/style.css" text="Sign In">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </FlowPane>
+                  <AnchorPane layoutX="51.0" layoutY="93.0" prefHeight="280.0" prefWidth="300.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0">
+                     <children>
+                        <TextField fx:id="username" layoutY="-4.0" prefHeight="40.0" prefWidth="200.0" promptText="Username" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="email" layoutX="3.0" layoutY="58.0" prefHeight="40.0" prefWidth="243.0" promptText="Email" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="password1" layoutX="54.0" layoutY="108.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
+                        <PasswordField fx:id="password2" layoutX="20.0" layoutY="132.0" prefHeight="40.0" prefWidth="230.0" promptText="Password again" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0" />
+                        <Button layoutX="191.0" layoutY="240.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #1A4689; -fx-background-radius: 0.5em;" stylesheets="@../css/style.css" text="Sign Up" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="Ebrima" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label fx:id="username_label" layoutX="27.0" layoutY="40.0" prefHeight="20.0" prefWidth="252.0" textFill="#c30d0d" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="email_label" layoutX="35.0" layoutY="100.0" textFill="#c30d0d" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="password1_label" layoutX="14.0" layoutY="160.0" textFill="#c30d0d" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="password2_label" layoutX="14.0" layoutY="220.0" textFill="#c30d0d" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="220.0">
+                           <font>
+                              <Font name="Ebrima" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="success_signup" alignment="CENTER" layoutX="2.0" layoutY="254.0" prefHeight="35.0" prefWidth="184.0" textFill="#129e02" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font name="Ebrima" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="31.0" layoutY="23.0" prefHeight="460.0" prefWidth="293.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); -fx-background-radius: 0.8em;" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="23.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="72.0" layoutY="73.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="84.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="84.0">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" iconName="COGS" size="8em" />
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="288.0" stylesheets="@../css/style.css" text="Hajas Login System" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Ebrima Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="322.0" stylesheets="@../css/style.css" text="First JavaFx Project" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

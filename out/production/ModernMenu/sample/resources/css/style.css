@@ -1,0 +1,15 @@
+.transparent{
+    -fx-background-color: transparent;
+}
+.minimized_btn{
+    -fx-background-color: #2A9df4;
+}
+.close_btn{
+    -fx-background-color: #DC143C;
+}
+.minimized_btn:hover{
+    -fx-background-color: rgba(42, 157, 244, 0.8);
+}
+.close_btn:hover{
+    -fx-background-color: rgba(220, 20, 60, 0.8);
+}
