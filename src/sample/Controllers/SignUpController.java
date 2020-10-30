@@ -15,10 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.apache.commons.validator.routines.EmailValidator;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SignUpController extends Main {
 
@@ -62,10 +59,11 @@ public class SignUpController extends Main {
                 MySqlConnect connection = new MySqlConnect();
                 Connection conn = connection.getConnection();
 
-                PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (`username`, `email`, `password`) VAlUES(?, ?, ?)");
+                PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (`username`, `email`, `password`, `joinTime`) VAlUES(?, ?, ?, ?)");
                 stmt.setString(1, username.getText());
                 stmt.setString(2, email.getText());
                 stmt.setString(3, SHA_Encrypt(password1.getText()));
+                stmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
                 stmt.executeUpdate();
                 success_signup.setText("Successful signed up");
             }catch (SQLException e){
@@ -80,6 +78,7 @@ public class SignUpController extends Main {
             Scene scene = new Scene(root);
             Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             scene.setFill(Color.TRANSPARENT);
+            window.setResizable(true);
             window.setScene(scene);
             window.show();
             MoveScene(root, window, scene);

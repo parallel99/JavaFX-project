@@ -28,17 +28,17 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.initStyle(StageStyle.TRANSPARENT);
             scene.setFill(Color.TRANSPARENT);
-            File f = new File("src/sample/resources/css/style.css");
-            scene.getStylesheets().add(f.toURI().toURL().toExternalForm());
+            File cssPath = new File("src/sample/resources/css/style.css");
+            scene.getStylesheets().add(cssPath.toURI().toURL().toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
             MoveScene(root, primaryStage, scene);
-        } catch (IllegalAccessError | IOException e){
+        } catch (IllegalAccessError e){
             System.out.println("Message: " + e.getMessage());
             System.out.println("ToString: " + e.toString());
             System.out.println("StackTrace: " + e.getStackTrace());
             System.out.println("Cause: " + e.getCause());
-        } catch(Exception e) {
+        } catch(IOException e) {
             System.out.println("Message: " + e.getMessage());
             System.out.println("ToString: " + e.toString());
             System.out.println("StackTrace: " + e.getStackTrace());

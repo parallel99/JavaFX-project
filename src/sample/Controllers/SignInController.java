@@ -1,6 +1,9 @@
 package sample.Controllers;
 
 
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
+import sample.model.UserSession;
 import sample.ConnectDatabase.MySqlConnect;
 import sample.Main;
 import javafx.event.ActionEvent;
@@ -14,10 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SignInController extends Main {
 
@@ -33,12 +39,22 @@ public class SignInController extends Main {
         Connection conn = connection.getConnection();
 
         try {
-            PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(*) as ROW FROM `users` WHERE `email` = ? AND `password` = ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(*) as ROW, `id`, `username`, `email` FROM `users` WHERE `email` = ? AND `password` = ?");
             stmt.setString(1, email.getText());
             stmt.setString(2, SHA_Encrypt(password.getText()));
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            System.out.println(rs.getInt("ROW"));
+
+            if(rs.getInt("ROW") == 1){
+                SaveUser(rs);
+
+                //Close SignIn Stage
+                Stage loginSystemStage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+                loginSystemStage.close();
+
+                OpenToDoApp();
+            }
+
         } catch (SQLException ex) {
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("ErrorCode: " + ex.getErrorCode());
@@ -56,8 +72,42 @@ public class SignInController extends Main {
             window.setScene(scene);
             window.show();
             MoveScene(root, window, scene);
-        } catch (Exception e){
+        } catch (IOException e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    private void OpenToDoApp(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/sample/resources/view/ToDo.fxml"));
+            Scene scene = new Scene(root);
+            Stage window = new Stage();
+            window.setMinWidth(815);
+            window.setMinHeight(615);
+            window.setScene(scene);
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.initStyle(StageStyle.DECORATED);
+            window.show();
+            MoveScene(root, window, scene);
+        } catch (IOException ex){
+            System.out.println("Message: " + ex.getMessage());
+            System.out.println("ToString: " + ex.toString());
+            System.out.println("StackTrace: " + ex.getStackTrace());
+            System.out.println("Cause: " + ex.getCause());
+        }
+    }
+
+    private void SaveUser(ResultSet rs){
+        Set<String> userdata = new HashSet<>();
+        try {
+            userdata.add(String.valueOf(rs.getInt("id")));
+            userdata.add(rs.getString("email"));
+            UserSession.getInstace(rs.getString("username"), userdata);
+        }catch (SQLException ex){
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("ErrorCode: " + ex.getErrorCode());
+            System.out.println("ToString: " + ex.toString());
+            System.out.println("Message: " + ex.getMessage());
         }
     }
 }

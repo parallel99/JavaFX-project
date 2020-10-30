@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ToDoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ToDoController">
    <children>
-      <AnchorPane layoutX="194.0" prefHeight="500.0" prefWidth="606.0" style="-fx-background-color: white; -fx-border-style: solid; -fx-border-radius: 0 0.8em 0.8em 0; -fx-background-radius: 0 0.8em 0.8em 0; -fx-border-color: #1A4689  #1A4689  #1A4689 white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="194.0" prefHeight="500.0" prefWidth="606.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TableView fx:id="ToDoTable" layoutX="23.0" layoutY="142.0" prefHeight="437.0" prefWidth="558.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="140.0">
+            <TableView fx:id="ToDoTable" layoutX="23.0" layoutY="142.0" prefHeight="437.0" prefWidth="558.0" styleClass="todo-table" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="140.0">
               <columns>
-                <TableColumn fx:id="col_todo" prefWidth="179.0" text="Teendő megnevezése" />
-                  <TableColumn fx:id="col_date" prefWidth="105.0" text="Határidő" />
-                  <TableColumn fx:id="col_more" minWidth="0.0" prefWidth="137.0" text="Több információ" />
-                  <TableColumn fx:id="col_status" prefWidth="141.0" text="Állapot frissítése" />
+                <TableColumn fx:id="col_todo" minWidth="170.0" prefWidth="173.0" resizable="false" styleClass="col-head1" text="Teendő megnevezése" />
+                  <TableColumn fx:id="col_date" minWidth="87.0" prefWidth="99.0" resizable="false" styleClass="col-head2" text="Határidő" />
+                  <TableColumn fx:id="col_more" minWidth="116.0" prefWidth="126.0" resizable="false" styleClass="col-head3" text="Több információ" />
+                  <TableColumn fx:id="col_status" minWidth="54.0" prefWidth="159.0" resizable="false" styleClass="col-head4" text="Állapot frissítése" />
               </columns>
             </TableView>
-            <AnchorPane layoutX="23.0" layoutY="65.0" prefHeight="72.0" prefWidth="556.0" AnchorPane.topAnchor="64.0">
+            <AnchorPane layoutX="23.0" layoutY="65.0" prefHeight="60.0" prefWidth="556.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="70.0">
                <children>
-                  <TextField layoutX="188.0" layoutY="16.0" prefHeight="40.0" prefWidth="250.0" />
-                  <Button contentDisplay="RIGHT" graphicTextGap="6.0" layoutX="456.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #1A4689;" text="Keresés" textFill="WHITE">
+                  <TextField layoutX="188.0" layoutY="16.0" prefHeight="40.0" prefWidth="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button contentDisplay="RIGHT" graphicTextGap="6.0" layoutX="456.0" layoutY="16.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #1A4689;" text="Keresés" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" iconName="SEARCH" />
                      </graphic>

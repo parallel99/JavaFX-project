@@ -8,7 +8,7 @@ public class MySqlConnect {
     public Connection conn;
 
     public Connection getConnection(){
-        String DATABASE = "chat";
+        String DATABASE = "javafx";
         String USERNAME = "root";
         String PASSWORD = "";
 

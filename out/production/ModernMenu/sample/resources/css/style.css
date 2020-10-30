@@ -13,3 +13,44 @@
 .close_btn:hover{
     -fx-background-color: rgba(220, 20, 60, 0.8);
 }
+
+
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: navajowhite;
+    -fx-font-size: 14px;
+    -fx-min-height: 20px;
+}
+
+.col-head1{
+    -fx-background-radius: 8px 0 0 0;
+}
+
+.col-head4{
+    -fx-background-radius: 0 8px 0 0;
+}
+
+.todo-table{
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view{
+    -fx-background-radius: 8px;
+    -fx-background-color: linear-gradient(to top right, rgba(64,164,177,1) 0%, rgba(124,221,230,1) 44%, #4ac3a6 100%);
+}
+
+.table-view .column-header-background{
+    -fx-background-color: navajowhite;
+    -fx-background-radius: 8px;
+    -fx-background-insets: 0 0 10 0;
+    -fx-padding: 5 0 15 0;
+}
+
+.table-view .column-header, .table-view .filler{
+    -fx-font-size: 15px;
+    -fx-border-width: 0 0 10 110;
+    -fx-background-color: transparent;
+}
+
