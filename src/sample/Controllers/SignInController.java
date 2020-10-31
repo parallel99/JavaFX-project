@@ -39,6 +39,7 @@ public class SignInController extends Main {
         Connection conn = connection.getConnection();
 
         try {
+
             PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(*) as ROW, `id`, `username`, `email` FROM `users` WHERE `email` = ? AND `password` = ?");
             stmt.setString(1, email.getText());
             stmt.setString(2, SHA_Encrypt(password.getText()));
@@ -54,7 +55,9 @@ public class SignInController extends Main {
 
                 OpenToDoApp();
             }
-
+            rs.close();
+            stmt.close();
+            conn.close();
         } catch (SQLException ex) {
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("ErrorCode: " + ex.getErrorCode());
@@ -98,11 +101,8 @@ public class SignInController extends Main {
     }
 
     private void SaveUser(ResultSet rs){
-        Set<String> userdata = new HashSet<>();
         try {
-            userdata.add(String.valueOf(rs.getInt("id")));
-            userdata.add(rs.getString("email"));
-            UserSession.getInstace(rs.getString("username"), userdata);
+            UserSession.getInstace(rs.getInt("id"), rs.getString("username"), rs.getString("email"));
         }catch (SQLException ex){
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("ErrorCode: " + ex.getErrorCode());

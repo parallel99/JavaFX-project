@@ -66,6 +66,9 @@ public class SignUpController extends Main {
                 stmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
                 stmt.executeUpdate();
                 success_signup.setText("Successful signed up");
+
+                stmt.close();
+                conn.close();
             }catch (SQLException e){
                 System.out.println("Hiba: " + e.getMessage());
             }

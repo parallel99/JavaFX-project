@@ -1,23 +1,22 @@
 package sample.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public final class UserSession {
 
     private static UserSession instance;
 
+    private Integer id;
     private String userName;
-    private Set<String> privileges;
+    private String email;
 
-    private UserSession(String userName, Set<String> privileges) {
+    private UserSession(Integer id, String userName, String email) {
         this.userName = userName;
-        this.privileges = privileges;
+        this.id = id;
+        this.email = email;
     }
 
-    public static UserSession getInstace(String userName, Set<String> privileges) {
+    public static UserSession getInstace(Integer id, String userName, String email) {
         if(instance == null) {
-            instance = new UserSession(userName, privileges);
+            instance = new UserSession(id, userName, email);
         }
         return instance;
     }
@@ -26,24 +25,31 @@ public final class UserSession {
         return instance;
     }
 
+    public Integer getID() {
+        return id;
+    }
+
     public String getUserName() {
         return userName;
     }
 
-    public Set<String> getPrivileges() {
-        return privileges;
+    public String getEmail() {
+        return email;
     }
 
     public void cleanUserSession() {
-        userName = "";// or null
-        privileges = new HashSet<>();// or null
+        id = null;
+        userName = null;
+        email = null;
+        instance = null;
     }
 
     @Override
     public String toString() {
         return "UserSession{" +
-                "userName='" + userName + '\'' +
-                ", privileges=" + privileges +
+                " ID='" + String.valueOf(id) + '\'' +
+                ", userName='" + String.valueOf(userName) + '\'' +
+                ", email='" + String.valueOf(email) + '\'' +
                 '}';
     }
 }

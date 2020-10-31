@@ -14,7 +14,17 @@
     -fx-background-color: rgba(220, 20, 60, 0.8);
 }
 
+.menu-color1{
+    -fx-background-color: #FAF5F0;
+}
 
+.menu-color2{
+    -fx-background-color: linear-gradient(to top right, rgba(28,101,111,1) 0%, rgba(23,191,208,1) 32%, rgba(42,184,150,1) 100%)
+}
+
+.menu-btn:hover{
+    -fx-background-color: rgba(0,0,0,0.2);
+}
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
