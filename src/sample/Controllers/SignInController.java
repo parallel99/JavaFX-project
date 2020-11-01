@@ -84,14 +84,15 @@ public class SignInController extends Main {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/sample/resources/view/ToDo.fxml"));
             Scene scene = new Scene(root);
-            Stage window = new Stage();
-            window.setMinWidth(815);
-            window.setMinHeight(615);
-            window.setScene(scene);
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.initStyle(StageStyle.DECORATED);
-            window.show();
-            MoveScene(root, window, scene);
+            Stage stage = new Stage();
+            stage.setMinWidth(825);
+            stage.setMinHeight(625);
+            stage.setTitle("Task Manager");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.DECORATED);
+            stage.show();
+            MoveScene(root, stage, scene);
         } catch (IOException ex){
             System.out.println("Message: " + ex.getMessage());
             System.out.println("ToString: " + ex.toString());

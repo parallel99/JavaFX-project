@@ -28,7 +28,7 @@
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-background-color: navajowhite;
+    /*-fx-background-color: navajowhite;*/
     -fx-font-size: 14px;
     -fx-min-height: 20px;
 }
@@ -52,7 +52,7 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: navajowhite;
+    -fx-background-color: rgba(255,255,255,0.7);
     -fx-background-radius: 8px;
     -fx-background-insets: 0 0 10 0;
     -fx-padding: 5 0 15 0;
@@ -64,3 +64,21 @@
     -fx-background-color: transparent;
 }
 
+.table-view .table-cell{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 10px 10px 10px 10px;
+    -fx-background-radius: 0;
+}
+
+.table-row-cell:even{
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: rgba(0,0,0,0.1);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+}
